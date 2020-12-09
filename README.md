@@ -2,7 +2,7 @@
 
 ### Simple python application that plays random youtube video from the provided list by user. 
 
-#### The python script rquires "Hour" and "Minute" values from the user.
+#### The python script requires "Hour" and "Minute" values from the user.
 
 Usage example:
 
