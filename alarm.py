@@ -3,9 +3,6 @@ from datetime import datetime
 
 current_time = time.strftime("%H:%M:%S")
 
-url1 = "https://www.youtube.com/watch?v=u8w9lItR05U"
-url2 = "https://www.youtube.com/watch?v=Kbik2irlE8U"
-
 # Check the input from user
 def check_alarm_input(alarm_time):
     if (0 <= alarm_minute <= 60) and (0 <= alarm_hour <= 24):
@@ -35,10 +32,14 @@ while True:
 print("The alarm has been set for:", alarm_hour, ":" ,alarm_minute)
 print("")
 
+# open file and read urls
+with open('video-list.txt', 'r') as video_file:
+    video_links = video_file.readlines()
+
 # loop until time matches alarm time
 while True:
     if (alarm_hour == datetime.now().hour and alarm_minute == datetime.now().minute):
-        print("\nIt's the time!")
-        web_url = random.choice([url1, url2])
-        webbrowser.open(web_url)
+        print("\nIt's time! Opening a randomly choosed video from the list in web browser")
+        randomly_selecte_video=random.choice(video_links)
+        webbrowser.open(randomly_selecte_video)
         break
